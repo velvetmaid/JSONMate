@@ -1,6 +1,5 @@
 package com.vlma.jsonmate.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -10,18 +9,24 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
+private val LightColorScheme = darkColorScheme(
     primary = Purple80,
+    onPrimary = Purple40,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    onSecondary = PurpleGrey40,
+    tertiary = Pink80,
+    onTertiary = Pink40
 )
 
-private val LightColorScheme = lightColorScheme(
+private val DarkColorScheme = lightColorScheme(
     primary = Purple40,
+    onPrimary = Purple80,
     secondary = PurpleGrey40,
-    tertiary = Pink40
+    onSecondary = PurpleGrey80,
+    tertiary = Pink40,
+    onTertiary = Pink80
+
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -53,26 +58,6 @@ fun JSONMateTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
-}
-
-@Composable
-fun JsonMateTheme(
-    content: @Composable () -> Unit
-) {
-    MaterialTheme(
-        colorScheme = lightColorScheme(
-            primary = Purple40,
-            secondary = Teal200,
-            background = Color(0xFF121212),
-            surface = Color(0xFF121212),
-            onPrimary = Color.White,
-            onSecondary = Color.Black,
-            onBackground = Color.White,
-            onSurface = Color.White
-        ),
         typography = Typography,
         content = content
     )
