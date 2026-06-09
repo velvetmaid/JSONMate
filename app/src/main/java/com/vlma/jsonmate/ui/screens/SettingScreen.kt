@@ -4,25 +4,26 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vlma.jsonmate.ui.components.HeaderBar
+import com.vlma.jsonmate.ui.screens.settings.ThemeMode
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
-    isDarkTheme: Boolean,        // Passed as a prop
-    onThemeToggle: () -> Unit,   // Callback function
-    onBack: () -> Unit           // Navigation callback
+    themeMode: ThemeMode,               // Current theme
+    onThemeChange: (ThemeMode) -> Unit, // Theme change callback
+    onBack: () -> Unit                  // Navigation callback
 ) {
     Scaffold(
         topBar = {
@@ -39,19 +40,29 @@ fun SettingsScreen(
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            // A simple "Row" with a label and a Switch
+            // Appearance
+            Text(
+                "Appearance", style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimary
+            )
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.padding(vertical = 8.dp)
             ) {
-                Text("Dark Mode", style = MaterialTheme.typography.bodyLarge)
-
-                // Switch is the standard toggle component
-                Switch(
-                    checked = isDarkTheme,
-                    onCheckedChange = { onThemeToggle() }
-                )
+                ThemeMode.entries.forEach { mode ->
+                    FilterChip(
+                        selected = themeMode == mode,
+                        onClick = { onThemeChange(mode) },
+                        label = { Text(mode.label) },
+                        leadingIcon = {
+                            Icon(
+                                mode.icon,
+                                contentDescription = null
+                            )
+                        }
+                    )
+                }
             }
         }
     }

@@ -10,7 +10,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
-private val LightColorScheme = darkColorScheme(
+private val LightColorScheme = lightColorScheme(
     primary = Purple80,
     onPrimary = Purple40,
     secondary = PurpleGrey80,
@@ -19,7 +19,7 @@ private val LightColorScheme = darkColorScheme(
     onTertiary = Pink40
 )
 
-private val DarkColorScheme = lightColorScheme(
+private val DarkColorScheme = darkColorScheme(
     primary = Purple40,
     onPrimary = Purple80,
     secondary = PurpleGrey40,
@@ -43,7 +43,7 @@ private val DarkColorScheme = lightColorScheme(
 fun JSONMateTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
