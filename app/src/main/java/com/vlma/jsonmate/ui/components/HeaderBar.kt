@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.FontWeight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,7 +21,10 @@ fun HeaderBar(
     onBackClick: (() -> Unit)? = null      // Optional back button
 ) {
     TopAppBar(
-        title = { Text(text = title, style = MaterialTheme.typography.titleLarge) },
+        title = { Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold) },
 
         // This is the "Navigation Icon" area (Left side)
         navigationIcon = {

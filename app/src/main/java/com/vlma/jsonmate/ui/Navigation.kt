@@ -7,7 +7,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
-
 object Routes {
     const val MAIN = "main"
     const val SETTINGS = "settings"

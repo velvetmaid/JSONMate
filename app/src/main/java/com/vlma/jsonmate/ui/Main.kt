@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.vlma.jsonmate.ui.screens.MainScreen
-import com.vlma.jsonmate.ui.screens.SettingsScreen
+import com.vlma.jsonmate.ui.screens.settings.SettingsScreen
 import com.vlma.jsonmate.ui.screens.settings.ThemeMode
 import com.vlma.jsonmate.ui.theme.JSONMateTheme
 
@@ -26,8 +26,6 @@ fun MainApp() {
         ThemeMode.LIGHT -> false
         ThemeMode.DARK -> true
     }
-
-
 
     // 2. THEME PROVIDER
     JSONMateTheme(darkTheme = darkTheme) {

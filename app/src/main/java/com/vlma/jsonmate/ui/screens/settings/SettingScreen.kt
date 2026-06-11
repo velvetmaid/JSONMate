@@ -1,4 +1,4 @@
-package com.vlma.jsonmate.ui.screens
+package com.vlma.jsonmate.ui.screens.settings
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vlma.jsonmate.ui.components.HeaderBar
-import com.vlma.jsonmate.ui.screens.settings.ThemeMode
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
